@@ -18,7 +18,7 @@ export const populateMap = (flights, layerGroup) => {
       // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    console.log('lat: ', i, flight.latitude);
+    //console.log('lat: ', i, flight.latitude);
     L.marker([flight.latitude, flight.longitude], {
       icon: planeIcon,
       rotationAngle: flight.true_track,
@@ -28,7 +28,8 @@ export const populateMap = (flights, layerGroup) => {
         console.log(`icao24: ${flight.icao24}, latlong: ${e.latlng}`);
 
         const planeInfo = document.querySelector('plane-info');
-        planeInfo.setAttribute('degrees', flight.true_track.toString());
+        console.log(flight.true_track.toString());
+        planeInfo.setAttribute('degrees', `${flight.true_track}`);
       });
     i++;
   });

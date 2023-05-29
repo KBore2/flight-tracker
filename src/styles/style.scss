@@ -7,10 +7,15 @@ body {
   }
 }
 
+header {
+  text-align: center;
+}
+
 .select-flight {
   form {
     display: flex;
     flex-direction: column;
+    padding: 20px;
   }
 }
 
@@ -24,5 +29,60 @@ aside {
   height: 356px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
+  body {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      'head head'
+      'select .'
+      'map aside';
+  }
+
+  header {
+    grid-area: head;
+    text-align: center;
+  }
+
+  .select-flight {
+    grid-area: select;
+    height: auto;
+
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 10px;
+
+      input[type='text'] {
+        width: 500px;
+      }
+
+      input[type='submit'] {
+        width: 100px;
+        //margin-right: auto;
+      }
+    }
+
+    button {
+      display: none;
+    }
+  }
+
+  .map {
+    grid-area: map;
+  }
+
+  #map {
+    height: auto;
+    width: auto;
+  }
+
+  aside {
+    grid-area: aside;
+
+    img {
+      width: auto;
+    }
+  }
 }

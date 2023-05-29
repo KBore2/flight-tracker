@@ -27,17 +27,19 @@ export class PlaneInfo extends LitElement {
   constructor() {
     super();
     this.name = 'Somebody';
-    this.degrees = 0;
+    this.degrees = 5;
   }
 
-  attributeChangedCallback() {
+  attributeChangedCallback(name, oldValue, newValue) {
     const img = document.querySelector('plane-info');
 
     console.log(getComputedStyle(img).getPropertyValue('--rotationAmount'));
 
-    console.log(`${this.degrees}deg`);
+    console.log(name, oldValue, newValue);
 
-    img.style.setProperty('--rotationAmount', `${this.degrees}deg`);
+    this.degrees = parseFloat(newValue);
+
+    img.style.setProperty('--rotationAmount', `${newValue}deg`);
   }
 
   render() {
