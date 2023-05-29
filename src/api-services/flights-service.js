@@ -4,7 +4,7 @@ import axios from "axios";
 const url = 'https://opensky-network.org/api';
 
 
-export const getFlights = async (dperatingFrom=null,arraivaingAt=null) =>{
+export const getFlights = async (dperatingFrom=null) =>{
     
     
     const promise = axios({

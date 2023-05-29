@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flight Tracker</title>
     <link rel="stylesheet" href="./src/styles/style.scss" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script type="module" defer src="main.js"></script>
   </head>
   <body>
@@ -20,14 +25,14 @@
     </header>
     <section id="map" class="map"></section>
     <section class="select-flight">
-        <form>
-          <input type="text" name="depart" placeholder="Deperating From?">
-          <input type="submit" value="Search">
-        </form>
-        <button >Flight Details</button>
+      <form>
+        <input type="text" name="depart" placeholder="Deperating From?" />
+        <input type="submit" value="Search" />
+      </form>
+      <button>Flight Details</button>
     </section>
     <aside>
-      <img src="/src/assets/plane.png" alt="plane">
+      <plane-info degrees="45"></plane-info>
       <div class="plane-info">
         <p>Latitude</p>
         <p>Longtude</p>

@@ -1,33 +1,30 @@
-import { getFlights } from "./src/api-services/flights-service";
-import { populateMap } from "./src/dom-servcies/populateFlights";
+import { getFlights } from './src/api-services/flights-service';
+import { populateMap } from './src/dom-servcies/populateFlights';
+import './src/components/plane-info-component';
 
-console.log("I AM MAIN");
+console.log('I AM MAIN');
 
 const map = L.map('map').setView([4.0383, 21.7587], 2);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+// eslint-disable-next-line no-undef
 const layerGroup = L.layerGroup().addTo(map);
 
-
 const form = document.querySelector('form');
-form.addEventListener('submit',async (e) =>{
-    e.preventDefault();
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    let flights;
-    if(e.target.depart.value !== '')
-        flights  = await getFlights(e.target.depart.value);
-    else
-        flights = await getFlights();
+  let flights;
+  if (e.target.depart.value !== '')
+    flights = await getFlights(e.target.depart.value);
+  else flights = await getFlights();
 
-    
-    console.log(flights)
+  console.log(flights);
 
-    populateMap(flights,layerGroup);
-
-})
-
-
+  populateMap(flights, layerGroup);
+});
