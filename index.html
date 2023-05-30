@@ -21,23 +21,18 @@
   </head>
   <body>
     <header>
-      <h1>flight Tracker</h1>
+      <h1>Flight Tracker</h1>
     </header>
     <section id="map" class="map"></section>
     <section class="select-flight">
       <form>
-        <input type="text" name="depart" placeholder="Deperating From?" />
+        <label for="origin">Origin Country</label>
+        <input type="text" name="origin" placeholder="Anywhere?" />
         <input type="submit" value="Search" />
       </form>
     </section>
     <aside>
-      <plane-info degrees="45"></plane-info>
-      <div class="plane-info">
-        <p>Latitude</p>
-        <p>Longtude</p>
-        <p>Velocity</p>
-        <p>Altitude</p>
-      </div>
+      <plane-info></plane-info>
     </aside>
   </body>
 </html>

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import plane from '../assets/plane.png';
+import plane from '../assets/grey-plane.png';
 import 'leaflet-rotatedmarker';
 
 export const populateMap = (flights, layerGroup) => {
@@ -21,15 +21,24 @@ export const populateMap = (flights, layerGroup) => {
     //console.log('lat: ', i, flight.latitude);
     L.marker([flight.latitude, flight.longitude], {
       icon: planeIcon,
-      rotationAngle: flight.true_track,
+      rotationAngle: flight.true_track - 45,
     })
       .addTo(layerGroup)
       .on('click', (e) => {
         console.log(`icao24: ${flight.icao24}, latlong: ${e.latlng}`);
 
         const planeInfo = document.querySelector('plane-info');
-        console.log(flight.true_track.toString());
-        planeInfo.setAttribute('degrees', `${flight.true_track}`);
+        //console.log(flight.true_track.toString());
+
+        const info = {
+          degrees: flight.true_track,
+          latitude: flight.latitude,
+          longitude: flight.longitude,
+          velocity: flight.velocity,
+          altitude: flight.altitude,
+        };
+
+        planeInfo.setAttribute('info', JSON.stringify(info));
       });
     i++;
   });

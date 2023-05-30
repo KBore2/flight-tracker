@@ -1,4 +1,4 @@
-import { getFlights } from './src/api-services/flights-service';
+import { getFlights, getFlightss } from './src/api-services/flights-service';
 import { populateMap } from './src/dom-servcies/populateFlights';
 import './src/components/plane-info-component';
 
@@ -20,9 +20,13 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   let flights;
-  if (e.target.depart.value !== '')
-    flights = await getFlights(e.target.depart.value);
-  else flights = await getFlights();
+  //   if (e.target.depart.value !== '')
+  //     flights = await getFlights(e.target.depart.value);
+  //   else flights = await getFlights();
+
+  if (e.target.origin.value !== '')
+    flights = getFlightss(e.target.origin.value);
+  else flights = getFlightss();
 
   console.log(flights);
 
