@@ -1,4 +1,4 @@
-import { getFlights, getFlightss } from './src/api-services/flights-service';
+import { getFlights } from './src/api-services/flights-service';
 import { populateMap } from './src/dom-servcies/populateFlights';
 import './src/components/plane-info-component';
 
