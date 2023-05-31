@@ -17,8 +17,8 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   let flights;
-  if (e.target.depart.value !== '')
-    flights = await getFlights(e.target.depart.value);
+  if (e.target.origin.value !== '')
+    flights = await getFlights(e.target.origin.value);
   else flights = await getFlights();
 
   populateMap(flights, layerGroup);

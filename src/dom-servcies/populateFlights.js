@@ -9,7 +9,7 @@ export const populateMap = (flights, layerGroup) => {
     const planeIcon = L.icon({
       iconUrl: plane,
 
-      iconSize: [30, 30],
+      iconSize: [20, 20],
     });
 
     L.marker([flight.latitude, flight.longitude], {

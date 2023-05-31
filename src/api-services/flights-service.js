@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const url = 'https://opensky-network.org/api';
 
-export const getFlights = async (dperatingFrom = null) => {
+export const getFlights = async (deperatingFrom = null) => {
   const promise = axios({
     method: 'get',
     url: `${url}/states/all`,
@@ -26,12 +26,13 @@ export const getFlights = async (dperatingFrom = null) => {
         )
         .filter((f) => f.lat !== null && f.longitude !== null);
 
-      if (dperatingFrom)
-        flights = flights.filter((f) => {
-          f.origin_country.toLowerCase() === dperatingFrom.toLowerCase();
-        });
+      if (deperatingFrom)
+        flights = flights.filter(
+          (f) => f.origin_country.toLowerCase() === deperatingFrom.toLowerCase()
+        );
 
-      return flights.slice(0, 100);
+      console.log(flights);
+      return flights.slice(0, 50);
     })
     .catch((err) => console.error(err));
 
