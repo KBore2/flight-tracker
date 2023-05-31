@@ -61,7 +61,7 @@ header {
 
     input[type='text']:focus {
       outline: none;
-      border: 1px solid rgb(160, 255, 151);
+      border: 2px solid rgb(160, 255, 151);
     }
 
     input[type='submit'] {
@@ -74,7 +74,6 @@ header {
     input[type='submit']:hover {
       background-color: rgb(8, 107, 64);
       color: white;
-      //font-size: 1.1rem;
     }
   }
 }
@@ -117,8 +116,6 @@ aside {
       justify-content: space-between;
       align-items: baseline;
       padding: 0px;
-      //border: 1px solid black;
-
       height: fit-content;
       margin: 15px auto 15px auto;
       box-shadow: -7px 5px 10px 0px rgba(0, 0, 0, 0.2);
@@ -131,13 +128,11 @@ aside {
       }
 
       input[type='text'] {
-        //width: 45%;
         padding-left: 10px;
         flex-grow: 1;
       }
 
       input[type='submit'] {
-        //margin-left: auto;
         width: 100px;
         flex-grow: 0;
       }

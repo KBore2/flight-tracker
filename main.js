@@ -2,8 +2,6 @@ import { getFlights, getFlightss } from './src/api-services/flights-service';
 import { populateMap } from './src/dom-servcies/populateFlights';
 import './src/components/plane-info-component';
 
-console.log('I AM MAIN');
-
 const map = L.map('map').setView([4.0383, 21.7587], 2);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -12,7 +10,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
-// eslint-disable-next-line no-undef
 const layerGroup = L.layerGroup().addTo(map);
 
 const form = document.querySelector('form');
@@ -20,15 +17,9 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   let flights;
-  //   if (e.target.depart.value !== '')
-  //     flights = await getFlights(e.target.depart.value);
-  //   else flights = await getFlights();
-
-  if (e.target.origin.value !== '')
-    flights = getFlightss(e.target.origin.value);
-  else flights = getFlightss();
-
-  console.log(flights);
+  if (e.target.depart.value !== '')
+    flights = await getFlights(e.target.depart.value);
+  else flights = await getFlights();
 
   populateMap(flights, layerGroup);
 });

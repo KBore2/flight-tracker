@@ -72,11 +72,6 @@ export class PlaneInfo extends LitElement {
   `;
 
   static properties = {
-    //degrees: { type: Number },
-    // latitude: { type: Number },
-    // longitude: { type: Number },
-    // velocity: { type: Number },
-    // altitude: { type: Number },
     info: { type: Object },
   };
 
@@ -94,15 +89,7 @@ export class PlaneInfo extends LitElement {
   attributeChangedCallback(name, oldValue, newValue) {
     const img = document.querySelector('plane-info');
 
-    console.log(getComputedStyle(img).getPropertyValue('--rotationAmount'));
-
-    //console.log(name, oldValue, newValue);
-
-    //const newInfo = JSON.parse(newValue);
-
     this.info = JSON.parse(newValue);
-
-    console.log(this.info);
 
     img.style.setProperty('--rotationAmount', `${this.info.degrees}deg`);
   }
