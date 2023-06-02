@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Flight } from '../types/flightType';
 
 const url = 'https://opensky-network.org/api';
 
@@ -11,7 +12,7 @@ export const getFlights = async (deperatingFrom: string = '') => {
     },
   })
     .then((response) => {
-      let flights = response.data.states
+      let flights: Flight[] = response.data.states
         .map(
           (flight: any) =>
             (flight = {
@@ -35,7 +36,11 @@ export const getFlights = async (deperatingFrom: string = '') => {
       console.log(flights);
       return flights.slice(0, 50);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      const b: Flight[] = [];
+      return b;
+    });
 
   return promise;
 };
