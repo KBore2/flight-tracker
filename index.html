@@ -17,22 +17,37 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script type="module" defer src="./src/main.ts"></script>
+    <script type="module" defer src="./src/main.js"></script>
   </head>
-  <body>
-    <header>
-      <h1>Flight Tracker</h1>
+  <body class="grid bg-zinc-100 p-0 m-0 h-screen">
+    <header class="text-center bg-green-400">
+      <h1 class="m-0 py-2.5">Flight Tracker</h1>
     </header>
-    <section id="map" class="map"></section>
-    <section class="select-flight">
-      <form>
-        <label for="origin">Origin Country</label>
-        <input type="text" name="origin" placeholder="Anywhere?" />
-        <input type="submit" value="Search" />
+    <section id="map" class="row-start-2 col-start-1 z-0 h-96"></section>
+    <section
+      class="row-start-2 col-start-1 self-end bg-transparent z-0 flex justify-center"
+    >
+      <form
+        class="flex flex-col text-base overflow-hidden p-0 m-5 rounded-lg shadow-md w-[80%] max-w-[600px]"
+      >
+        <label for="origin" class="pt-1 pl-1 bg-white border-b text-gray-400"
+          >Origin Country</label
+        >
+        <input
+          class="px-1 pl-1"
+          type="text"
+          name="origin"
+          placeholder="Anywhere?"
+        />
+        <input
+          class="bg-green-400 py-1 hover:bg-green-700 hover:text-white"
+          type="submit"
+          value="Search"
+        />
       </form>
     </section>
-    <aside>
-      <plane-info></plane-info>
+    <aside class="flex">
+      <plane-info class="grow flex justify-center"></plane-info>
     </aside>
   </body>
 </html>

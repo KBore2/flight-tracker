@@ -1,10 +1,9 @@
 import { getFlights } from './api-services/flights-service';
 import { populateMap } from './dom-servcies/populateFlights';
-import { Map} from 'leaflet';
 
 import './components/plane-info-component';
 
-const map = .map('map').setView([4.0383, 21.7587], 2);
+const map = L.map('map').setView([4.0383, 21.7587], 2);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -15,7 +14,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const layerGroup = L.layerGroup().addTo(map);
 
 const form = document.querySelector('form');
-form?.addEventListener('submit', async (e: any) => {
+form?.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   let flights;
