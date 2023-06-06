@@ -14,7 +14,7 @@ export const getFlights = async (deperatingFrom = '') => {
     .then((response) => {
       let flights: Flight[] = response.data.states
         .map(
-          (flight) =>
+          (flight: any) =>
             (flight = {
               icao24: flight[0],
               origin_country: flight[2],
@@ -25,7 +25,7 @@ export const getFlights = async (deperatingFrom = '') => {
               altitude: flight[13],
             })
         )
-        .filter((f) => f.lat !== null && f.longitude !== null);
+        .filter((f: any) => f.lat !== null && f.longitude !== null);
 
       if (deperatingFrom !== '')
         flights = flights.filter(
