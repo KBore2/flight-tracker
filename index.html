@@ -15,20 +15,46 @@
 
     <script type="module" defer src="/src/main.ts"></script>
   </head>
-  <body>
-    <header>
-      <h1>Flight Tracker</h1>
+  <body
+    class="grid bg-zinc-100 p-0 m-0 h-screen lg:grid-cols-4 lg:grid-rows-12"
+  >
+    <header
+      class="text-center bg-green-400 lg:row-start-1 lg:col-start-1 lg:col-span-4"
+    >
+      <h1 class="m-0 py-2.5">Flight Tracker</h1>
     </header>
-    <section id="map" class="map"></section>
-    <section class="select-flight">
-      <form>
-        <label for="origin">Origin Country</label>
-        <input type="text" name="origin" placeholder="Anywhere?" />
-        <input type="submit" value="Search" />
+    <section
+      id="map"
+      class="row-start-2 col-start-1 z-0 h-96 lg:h-auto lg:row-start-3 lg:row-[span_10_/_span_10] lg:col-start-1 lg:col-span-3"
+    ></section>
+    <section
+      class="row-start-2 col-start-1 self-end bg-transparent z-0 flex justify-center lg:row-start-2 lg:col-start-1 lg:col-span-3 lg:items-center"
+    >
+      <form
+        class="flex flex-col text-base overflow-hidden p-0 m-5 rounded-lg shadow-lg w-[80%] max-w-[600px] lg:flex lg:flex-row lg:justify-between lg:m-0 lg:mb-2"
+      >
+        <label
+          for="origin"
+          class="pt-1 pl-1 bg-white border-b text-gray-400 lg:border-r lg:border-slate-300 lg:grow-0 lg:py-1.5 px-2.5"
+          >Origin Country</label
+        >
+        <input
+          class="px-1 pl-1 focus:outline-none focus:border-2 focus:border-green-300 lg:grow lg:pl-2.5"
+          type="text"
+          name="origin"
+          placeholder="Anywhere?"
+        />
+        <input
+          class="bg-green-400 py-1 hover:bg-green-700 hover:text-white lg:grow-0 lg:w-24"
+          type="submit"
+          value="Search"
+        />
       </form>
     </section>
-    <aside>
-      <plane-info></plane-info>
+    <aside
+      class="flex lg:row-start-3 lg:row-[span_10_/_span_10] lg:col-start-4"
+    >
+      <plane-info class="grow flex justify-center"></plane-info>
     </aside>
   </body>
 </html>

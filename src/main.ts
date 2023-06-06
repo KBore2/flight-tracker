@@ -16,12 +16,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const layerGroup = L.layerGroup().addTo(map);
 
 const form = document.querySelector('form');
-form?.addEventListener('submit', async (e: any) => {
+form?.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   let flights: Flight[];
-  if (e.target.origin.value !== '')
-    flights = await getFlights(e.target.origin.value);
+  if ((e.target as HTMLFormElement).origin.value !== '')
+    flights = await getFlights((e.target as HTMLFormElement).origin.value);
   else flights = await getFlights();
 
   populateMap(flights, layerGroup);
