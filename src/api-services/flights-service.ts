@@ -38,8 +38,8 @@ export const getFlights = async (deperatingFrom: string = '') => {
     })
     .catch((err) => {
       console.error(err);
-      const b: Flight[] = [];
-      return b;
+      const emptyFlights: Flight[] = [];
+      return emptyFlights;
     });
 
   return promise;
