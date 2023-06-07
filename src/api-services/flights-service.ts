@@ -7,7 +7,6 @@ const getItem = (deperatingFrom: string) => {
   if (typeof Storage === undefined) return null;
 
   const cache = sessionStorage.getItem('flights');
-  //console.log(cache);
   if (cache === null) return null;
 
   const response = JSON.parse(cache as string);
@@ -39,10 +38,7 @@ const getItem = (deperatingFrom: string) => {
 
 export const getFlights = async (deperatingFrom = '') => {
   const flights = getItem(deperatingFrom);
-  console.log(flights);
   if (flights) return new Promise<Flight[]>((resolve) => resolve(flights));
-
-  console.log('missed');
 
   const promise = axios({
     method: 'get',
