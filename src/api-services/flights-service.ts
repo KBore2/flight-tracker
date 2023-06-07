@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Flight } from '../types/flightType';
-import { Observable, catchError, filter, from, map, throwError } from 'rxjs';
 
 const url = 'https://opensky-network.org/api';
 
