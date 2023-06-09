@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tailwindcss build -i src/styles/style.css -o dist/style.css && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -22,6 +22,7 @@
     "axios": "^1.4.0",
     "leaflet": "^1.9.4",
     "leaflet-rotatedmarker": "^0.2.0",
-    "lit": "^2.7.5"
+    "lit": "^2.7.5",
+    "rxjs": "^7.8.1"
   }
 }

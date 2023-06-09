@@ -3,7 +3,7 @@ import { Flight } from '../types/flightType';
 
 const url = 'https://opensky-network.org/api';
 
-export const getFlights = async (deperatingFrom = '') => {
+export const getFlights = async (deperatingFrom: string = '') => {
   const promise = axios({
     method: 'get',
     url: `${url}/states/all`,

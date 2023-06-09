@@ -4,25 +4,25 @@ import L from 'leaflet';
 
 import './components/plane-info-component';
 import { Flight } from './types/flightType';
+import { from, fromEvent, map, switchMap, tap } from 'rxjs';
 
-const map = L.map('map').setView([4.0383, 21.7587], 2);
+const worldMap = L.map('map').setView([4.0383, 21.7587], 2);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+}).addTo(worldMap);
 
-const layerGroup = L.layerGroup().addTo(map);
+const layerGroup = L.layerGroup().addTo(worldMap);
 
-const form = document.querySelector('form');
-form?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  let flights: Flight[];
-  if ((e.target as HTMLFormElement).origin.value !== '')
-    flights = await getFlights((e.target as HTMLFormElement).origin.value);
-  else flights = await getFlights();
-
-  populateMap(flights, layerGroup);
-});
+const form = document.querySelector('form') as HTMLFormElement;
+fromEvent(form, 'submit')
+  .pipe(
+    tap((e) => e.preventDefault()),
+    map((e) => (e.target as HTMLFormElement).origin.value),
+    switchMap((value: string) => from(getFlights(value)))
+  )
+  .subscribe((flights: Flight[]) => {
+    populateMap(flights, layerGroup);
+  });

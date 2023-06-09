@@ -9,8 +9,6 @@ export const populateMap = (
   layerGroup: L.LayerGroup<any>
 ) => {
   layerGroup.clearLayers();
-
-  let i = 0;
   flights.forEach((flight) => {
     const planeIcon = L.icon({
       iconUrl: plane,
@@ -36,6 +34,5 @@ export const populateMap = (
 
         planeInfo?.setAttribute('info', JSON.stringify(info));
       });
-    i++;
   });
 };
