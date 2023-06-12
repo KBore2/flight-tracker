@@ -1,10 +1,14 @@
 import plane from '../assets/grey-plane.png';
+import { Flight } from '../types/flightType';
+import L from 'leaflet';
 import 'leaflet-rotatedmarker';
+import { Info } from '../types/planeInfoType';
 
-export const populateMap = (flights, layerGroup) => {
+export const populateMap = (
+  flights: Flight[],
+  layerGroup: L.LayerGroup<any>
+) => {
   layerGroup.clearLayers();
-
-  let i = 0;
   flights.forEach((flight) => {
     const planeIcon = L.icon({
       iconUrl: plane,
@@ -20,7 +24,7 @@ export const populateMap = (flights, layerGroup) => {
       .on('click', (e) => {
         const planeInfo = document.querySelector('plane-info');
 
-        const info = {
+        const info: Info = {
           degrees: flight.true_track,
           latitude: flight.latitude,
           longitude: flight.longitude,
@@ -28,8 +32,7 @@ export const populateMap = (flights, layerGroup) => {
           altitude: flight.altitude,
         };
 
-        planeInfo.setAttribute('info', JSON.stringify(info));
+        planeInfo?.setAttribute('info', JSON.stringify(info));
       });
-    i++;
   });
 };
